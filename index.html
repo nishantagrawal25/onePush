@@ -44,34 +44,43 @@
        {{data.tag}}
       </span>
       <span class="elipsis url mlm">
-       <i class="glyphicon glyphicon-link">
-        <a href="{{data.url_address}}" target="_blank">{{data.url_address}}</a>
-       </i>
+       <i class="glyphicon glyphicon-link"></i>
+       <a href="{{data.url_address}}" target="_blank">{{data.url_address}}</a>
       </span>
      </div>
     </div>
    </div>
    <div class="col-xs-4">
-    <form class="mtm add-website" name="addWebsite_form">
-     <div class="row">
-      <div class="col-xs-12">
+    <form class="mtm add-website" name="addWebsite_form" novalidate>
+     <h2>Contribute/Add Website</h2>
+     <div class="row mtm">
+      <div class="col-xs-12" ng-class="{'has-error' : (addWebsite_form.$submitted && addWebsite_form.title.$invalid)}">
        <label for="title">Title</label><br/>
-       <input class="form-control input-sm" id="title" name="title" ng-model="website.title" placeholder="Title">
+       <input class="form-control input-sm" id="title" name="title" ng-model="website.title" placeholder="Title" required>
+       <div class="help-block" ng-show="addWebsite_form.$submitted && addWebsite_form.title.$error.required">
+        Title is required
+       </div>
       </div>
      </div>
      <div class="row mtm">
-      <div class="col-xs-12">
+      <div class="col-xs-12" ng-class="{'has-error' : (addWebsite_form.$submitted && addWebsite_form.url.$invalid)}">
        <label for="url">URL</label><br/>
-       <input class="form-control input-sm" id="url" name="url" ng-model="website.url" placeholder="Website/url address">
+       <input class="form-control input-sm" id="url" name="url" ng-model="website.url" placeholder="Website/url address" required>
+       <div class="help-block" ng-show="addWebsite_form.$submitted && addWebsite_form.url.$error.required">
+        URL is required
+       </div>
       </div>
      </div>
      <div class="row mtm">
-      <div class="col-xs-12">
+      <div class="col-xs-12" ng-class="{'has-error' : (addWebsite_form.$submitted && addWebsite_form.tag.$invalid)}">
        <label for="tag">Tag</label><br/>
-       <input class="form-control input-sm" id="tag" name="tag" ng-model="website.tag" placeholder="Tag">
+       <input class="form-control input-sm" id="tag" name="tag" ng-model="website.tag" placeholder="Tag" required>
+       <div class="help-block" ng-show="addWebsite_form.$submitted && addWebsite_form.tag.$error.required">
+        Tag is required
+       </div>
       </div>
      </div><br/>
-     <button class="btn btn-sm btn-primary" ng-click="saveData()">Submit</button>
+     <button class="btn btn-sm btn-primary" ng-click="addWebsite_form.$valid && saveData()">Submit</button>
     </form>
    </div>
   </div>

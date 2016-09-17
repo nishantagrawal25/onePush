@@ -679,7 +679,7 @@ input.property-value[type=number] {
 }
 
 .elipsis {
- overflow: hidden;
+ /*overflow: hidden;*/
  text-overflow: ellipsis;
  white-space: nowrap
 }
@@ -723,6 +723,7 @@ input.property-value[type=number] {
 }
 
 .add-website {
- border: 1px solid #e2e2e2;
+ border: 2px solid #e2e2e2;
+ border-radius: 3px;
  padding: 10px;
 }
