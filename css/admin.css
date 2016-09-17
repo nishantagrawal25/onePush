@@ -713,7 +713,9 @@ input.property-value[type=number] {
 
 .url {
  display: inline-block;
- max-width: 300px;
+ max-width: 500px;
+ min-width: 400px;
+ border-right: 1px solid #e2e2e2;
 }
 
 .details {
@@ -726,4 +728,13 @@ input.property-value[type=number] {
  border: 2px solid #e2e2e2;
  border-radius: 3px;
  padding: 10px;
+}
+
+.like {
+ display: inline-block;
+}
+
+.like-icon {
+ font-size: 16px;
+ cursor: pointer;
 }

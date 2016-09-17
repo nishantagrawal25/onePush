@@ -37,7 +37,7 @@
      <div class="col-xs-2 img">
       <img class="fav-image" ng-src="{{data.favicon_image}}" />
      </div>
-     <div class="col-xs-8 website-info">
+     <div class="col-xs-10 website-info">
       <h2 class="title mbm">{{data.title}}</h2>
       <span class="tag">
        <i class="glyphicon glyphicon-tag"></i>
@@ -46,6 +46,10 @@
       <span class="elipsis url mlm">
        <i class="glyphicon glyphicon-link"></i>
        <a href="{{data.url_address}}" target="_blank">{{data.url_address}}</a>
+      </span>
+      <span class="mlm like">
+       <i tooltip="Like" class="glyphicon glyphicon-thumbs-up like-icon" ng-click="like(data)"></i>
+       <span class="mlm">{{data.likes}}</span>
       </span>
      </div>
     </div>
