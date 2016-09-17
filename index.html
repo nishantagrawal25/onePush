@@ -5,23 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/ng-table.min.css">
 <link rel="stylesheet" href="css/admin.css">
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/angular-route.min.js"></script>
 <script type="text/javascript" src="js/ui-bootstrap-tpls-0.13.2.js"></script>
-<script type="text/javascript" src="js/ng-table.min.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
-<script type="text/javascript" src="js/controllers.js"></script>
-<script type="text/javascript" src="js/directives.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <title>Enterprise Admin</title>
 </head>
-<body ng-controller="AdminCtrl">
+<body ng-controller="AppCtrl">
 
  <main class="main-content">
+  <!--Search bar-->
   <div class="row">
-   <div class="col-sm-9" style="width: 73%">
+   <div style="width: 67%">
     <div class="input-group">
      <input type="text" class="search form-control" placeholder="Search (by title, url or tag)" ng-model="query">
      <span class="input-group-addon">
@@ -31,7 +27,9 @@
     </div>
    </div>
   </div>
+  <!--End search bar-->
   <div class="row mtm">
+   <!--Showing data from api-->
    <div class="col-xs-8">
     <div class="row mtm details" ng-repeat="data in websiteData | filter:query">
      <div class="col-xs-2 img">
@@ -54,6 +52,7 @@
      </div>
     </div>
    </div>
+<!--  Form to post website data to server -->
    <div class="col-xs-4">
     <form class="mtm add-website" name="addWebsite_form" novalidate>
      <h2>Contribute/Add Website</h2>
@@ -87,12 +86,9 @@
      <button class="btn btn-sm btn-primary" ng-click="addWebsite_form.$valid && saveData()">Submit</button>
     </form>
    </div>
+   <!--Form end-->
   </div>
-  <!--Welcome to toppr challenge
-  <button class="btn btn-small btn-primary" ng-click="saveData()">Hello toppr</button><br/>
-  <div ng-repeat="data in websiteData">
-   <img ng-src="{{data.favicon_image}}" />
-  </div>-->
+  
  </main>
 
 </body>

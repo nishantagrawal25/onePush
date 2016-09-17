@@ -1,9 +1,10 @@
-var app = angular.module('app', [ 'ngRoute', 'controllers', 'services',
-  'ui.bootstrap', 'ngTable' , 'directives']);
+var app = angular.module('app', [ 'services', 'ui.bootstrap']);
 
-app.controller('AdminCtrl', [ '$scope', 'AdminSvc', '$location','$http', function($scope, AdminSvc, $location, $http) {
+app.controller('AppCtrl', [ '$scope', 'AdminSvc', function($scope, AdminSvc) {
 
   getData();
+  
+  //Function to get data of websites
   
   function getData() {
     AdminSvc.getData().then(function(data) {
@@ -17,6 +18,8 @@ app.controller('AdminCtrl', [ '$scope', 'AdminSvc', '$location','$http', functio
     })
   }
   
+  //Function to Save form data
+  
   $scope.saveData = function() {
     AdminSvc.saveData($scope.website).then(function() {
       console.log("success")
@@ -24,6 +27,8 @@ app.controller('AdminCtrl', [ '$scope', 'AdminSvc', '$location','$http', functio
       console.log("failure")  
     })
   }
+  
+  //Function to like respective urls
   
   $scope.like = function(data) {
     data.likes = 0;
