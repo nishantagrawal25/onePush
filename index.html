@@ -20,11 +20,66 @@
 <body ng-controller="AdminCtrl">
 
  <main class="main-content">
-  Welcome to toppr challenge
+  <div class="row">
+   <div class="col-sm-9" style="width: 73%">
+    <div class="input-group">
+     <input type="text" class="search form-control" placeholder="Search (by title, url or tag)" ng-model="query">
+     <span class="input-group-addon">
+      <i ng-show="suggesting" class="glyphicon glyphicon-refresh"></i>
+      <i ng-show="!suggesting" class="glyphicon glyphicon-search search-button" ng-click = search()></i>
+     </span>
+    </div>
+   </div>
+  </div>
+  <div class="row mtm">
+   <div class="col-xs-8">
+    <div class="row mtm details" ng-repeat="data in websiteData | filter:query">
+     <div class="col-xs-2 img">
+      <img class="fav-image" ng-src="{{data.favicon_image}}" />
+     </div>
+     <div class="col-xs-8 website-info">
+      <h2 class="title mbm">{{data.title}}</h2>
+      <span class="tag">
+       <i class="glyphicon glyphicon-tag"></i>
+       {{data.tag}}
+      </span>
+      <span class="elipsis url mlm">
+       <i class="glyphicon glyphicon-link">
+        <a href="{{data.url_address}}" target="_blank">{{data.url_address}}</a>
+       </i>
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="col-xs-4">
+    <form class="mtm add-website" name="addWebsite_form">
+     <div class="row">
+      <div class="col-xs-12">
+       <label for="title">Title</label><br/>
+       <input class="form-control input-sm" id="title" name="title" ng-model="website.title" placeholder="Title">
+      </div>
+     </div>
+     <div class="row mtm">
+      <div class="col-xs-12">
+       <label for="url">URL</label><br/>
+       <input class="form-control input-sm" id="url" name="url" ng-model="website.url" placeholder="Website/url address">
+      </div>
+     </div>
+     <div class="row mtm">
+      <div class="col-xs-12">
+       <label for="tag">Tag</label><br/>
+       <input class="form-control input-sm" id="tag" name="tag" ng-model="website.tag" placeholder="Tag">
+      </div>
+     </div><br/>
+     <button class="btn btn-sm btn-primary" ng-click="saveData()">Submit</button>
+    </form>
+   </div>
+  </div>
+  <!--Welcome to toppr challenge
   <button class="btn btn-small btn-primary" ng-click="saveData()">Hello toppr</button><br/>
   <div ng-repeat="data in websiteData">
    <img ng-src="{{data.favicon_image}}" />
-  </div>
+  </div>-->
  </main>
 
 </body>

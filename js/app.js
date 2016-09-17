@@ -13,10 +13,7 @@ app.controller('AdminCtrl', [ '$scope', 'AdminSvc', '$location','$http', functio
   }
   
   $scope.saveData = function() {
-    $scope.title = "Nishant";
-    $scope.url = "http://www.google.com";
-    $scope.tag = "Trial"
-    AdminSvc.saveData($scope.title, $scope.url, $scope.tag).then(function() {
+    AdminSvc.saveData($scope.website).then(function() {
       console.log("success")
     }, function(err) {
       console.log("failure")  

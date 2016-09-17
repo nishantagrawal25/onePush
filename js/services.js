@@ -7,11 +7,11 @@ svc.service('AdminSvc', [ '$http', '$q', function($http, $q) {
       return this.get('https://hackerearth.0x10.info/api/one-push?type=json&query=list_websites')
     },
     
-    saveData : function(title, url, tag) {
+    saveData : function(website) {
       return this.put("https://hackerearth.0x10.info/api/one-push?type=json&query=push", {
-        title : title,
-        url : url,
-        tag : tag
+        title : website.title,
+        url : website.url,
+        tag : website.tag
       })
     },
 

@@ -43,7 +43,6 @@ h1 {
 }
 
 h2 {
- padding: 20px 0;
  font-size: 24px;
  font-weight: 100;
  line-height: 1.125;
@@ -699,4 +698,31 @@ input.property-value[type=number] {
 .ui-select-choices-row-inner > div {
  text-overflow: ellipsis;
  overflow: hidden;
+}
+
+.fav-image {
+ height: 50px;
+ width: 50px;
+}
+
+.tag {
+ min-width: 100px;
+ display: inline-block;
+ border-right: 1px solid #e2e2e2;
+}
+
+.url {
+ display: inline-block;
+ max-width: 300px;
+}
+
+.details {
+ border: 2px solid #e2e2e2;
+ border-radius: 3px;
+ padding: 5px;
+}
+
+.add-website {
+ border: 1px solid #e2e2e2;
+ padding: 10px;
 }
